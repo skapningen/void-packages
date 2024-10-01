@@ -1,8 +1,9 @@
 # Template file for 'vkQuake'
 pkgname=vkQuake
 version=1.31.2
-revision=1
+revision=2
 build_style=meson
+configure_args="-Ddo_userdirs=enabled"
 hostmakedepends="glslang SPIRV-Tools pkg-config"
 makedepends="SDL2-devel libvorbis-devel libmad-devel
  vulkan-loader-devel opusfile-devel"
