@@ -1,0 +1,35 @@
+# Template file for 'trenchbroom'
+pkgname=TrenchBroom
+version=2024.1
+revision=1
+archs="i686 x86_64"
+#build_wrksrc=
+build_style=cmake
+configure_args="-DCMAKE_BUILD_TYPE=Release
+ -DCMAKE_PREFIX_PATH=cmake/packages"
+ # -DCMAKE_TOOLCHAIN_FILE=vcpkg/scripts/buildsystems/vcpkg.cmake"
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="pandoc zip unzip git curl tar pkg-config xvfb-run"
+makedepends="freeimage-devel freetype-devel tinyxml2-devel qt5-devel qt5-svg-devel
+ libglvnd-devel glew-devel glm libXrandr-devel libXxf86vm-devel"
+# depends=""
+short_desc="Map editor for Quake-engine based games"
+maintainer=" <13951517+skapningen@users.noreply.github.com>"
+license="GPL-3.0-or-later"
+homepage="https://trenchbroom.github.io/"
+# changelog="https://github.com/TrenchBroom/TrenchBroom/releases/tag/v2024.1"
+# _vcpkg=2024.10.21
+# distfiles="https://github.com/TrenchBroom/TrenchBroom/archive/refs/tags/v${version}.tar.gz"
+ # https://github.com/microsoft/vcpkg/archive/refs/tags/${_vcpkg}.tar.gz"
+# checksum="1ab97625e96c9e411a6f0f00e119530e6c6bf22c02cb685b04117bae5acb0960"
+ # 879ff57284d0bdcab127315a994cf571de4c1c72a0f7a80b770c3e3714d1649b"
+
+# skip_extraction="${_vcpkg}.tar.gz"
+
+do_fetch() {
+	git clone --recursive -b v${version} --single-branch https://github.com/TrenchBroom/TrenchBroom.git TrenchBroom-${version}
+}
+
